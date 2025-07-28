@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phoenix Initiative - SC Product Options Rebirth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-title {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #94a3b8;
+            font-weight: 300;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .crisis-banner {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 40px;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .crisis-banner h3 {
+            color: #ef4444;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .crisis-metrics {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .crisis-metric {
+            text-align: center;
+        }
+        
+        .crisis-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ef4444;
+        }
+        
+        .crisis-label {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .phoenix-section {
+            background: #1a1f3a;
+            border-radius: 24px;
+            padding: 60px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phoenix-section::before {
+            content: '🔥';
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            font-size: 120px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #94a3b8;
+        }
+        
+        .timeline-indicator {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .transformation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .transformation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.2);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+        
+        .transformation-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .transformation-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .transformation-desc {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        
+        .metrics-showcase {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .metrics-showcase h3 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: #10b981;
+        }
+        
+        .target-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .target-metric {
+            text-align: center;
+            position: relative;
+        }
+        
+        .target-metric::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #10b981, #3b82f6);
+            border-radius: 2px;
+        }
+        
+        .target-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 5px;
+        }
+        
+        .target-label {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .target-change {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        .feature-spotlight {
+            margin: 60px 0;
+        }
+        
+        .feature-spotlight h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #ffffff;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+        }
+        
+        .feature-badge {
+            background: #8b5cf6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .feature-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .feature-description {
+            font-size: 18px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .feature-benefits {
+            list-style: none;
+        }
+        
+        .feature-benefits li {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-benefits li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+            font-weight: bold;
+        }
+        
+        .roadmap-future {
+            background: #0f172a;
+            border-radius: 24px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+        
+        .roadmap-future h3 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+        
+        .future-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .phase-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .phase-quarter {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .phase-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .phase-outcome {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        
+        .phase-features {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .phase-features li {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .phase-features li::before {
+            content: '•';
+            position: absolute;
+            left: 5px;
+            color: #3b82f6;
+        }
+        
+        .footer-cta {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+        }
+        
+        .footer-cta h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-cta p {
+            font-size: 20px;
+            color: #94a3b8;
+        }
+        
+        @media (max-width: 1024px) {
+            .transformation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .target-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .future-phases {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <h1 class="hero-title">The Phoenix Initiative</h1>
+        <p class="hero-subtitle">Resurrecting SC Product Options from 5+ years of Decline</p>
+        
+        <div class="crisis-banner">
+            <h3>The Burning Platform</h3>
+            <div class="crisis-metrics">
+                <div class="crisis-metric">
+                    <div class="crisis-value">-38%</div>
+                    <div class="crisis-label">Revenue Decline</div>
+                </div>
+                <div class="crisis-metric">
+                    <div class="crisis-value">-43%</div>
+                    <div class="crisis-label">Active Merchants</div>
+                </div>
+                <div class="crisis-metric">
+                    <div class="crisis-value">10+ Years</div>
+                    <div class="crisis-label">Legacy Codebase</div>
+                </div>
+                <div class="crisis-metric">
+                    <div class="crisis-value">4.6/5</div>
+                    <div class="crisis-label">App Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="phoenix-section">
+            <div class="section-header">
+                <div class="timeline-indicator">July - September 2024: The 90-Day Transformation</div>
+                <h2 class="section-title">Complete Platform Rebirth</h2>
+                <p class="section-subtitle">A strategic initiative to reclaim market leadership</p>
+            </div>
+            
+            <div class="transformation-grid">
+                <div class="transformation-card">
+                    <div class="transformation-icon">🏗️</div>
+                    <h3 class="transformation-title">Modern Architecture</h3>
+                    <p class="transformation-desc">Complete migration to GraphQL, React, and Shopify's latest APIs. Built for the next decade of growth.</p>
+                </div>
+                <div class="transformation-card">
+                    <div class="transformation-icon">🎨</div>
+                    <h3 class="transformation-title">Polaris UI Compliance</h3>
+                    <p class="transformation-desc">100% native Shopify admin experience. Merchants feel at home from day one.</p>
+                </div>
+                <div class="transformation-card">
+                    <div class="transformation-icon">⚡</div>
+                    <h3 class="transformation-title">User Experience Excellence</h3>
+                    <p class="transformation-desc">Intuitive workflows and seamless onboarding. Merchants succeed from day one with minimal friction.</p>
+                </div>
+            </div>
+            
+            <div class="metrics-showcase">
+                <h3>🎯 90-Day Transformation Targets</h3>
+                <div class="target-metrics">
+                    <div class="target-metric">
+                        <div class="target-value">80%</div>
+                        <div class="target-label">Time to First Option</div>
+                        <div class="target-change">WITHIN 5 MINUTES</div>
+                    </div>
+                    <div class="target-metric">
+                        <div class="target-value">99.9%</div>
+                        <div class="target-label">Migration Success</div>
+                        <div class="target-change">ZERO DATA LOSS</div>
+                    </div>
+                    <div class="target-metric">
+                        <div class="target-value">2x</div>
+                        <div class="target-label">Daily Install Rate</div>
+                        <div class="target-change">FROM 25 TO 50+</div>
+                    </div>
+                    <div class="target-metric">
+                        <div class="target-value">50%</div>
+                        <div class="target-label">Week 5 Retention</div>
+                        <div class="target-change">FROM 32% CURRENT</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-spotlight">
+                <h3>🎯 High-Impact Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="feature-badge">Customization</span>
+                        <h4 class="feature-title">Theme Intelligence™</h4>
+                        <p class="feature-description">Options automatically inherit your store's look and feel. No more ugly, generic forms that kill conversions.</p>
+                        <ul class="feature-benefits">
+                            <li>Auto-detects fonts, colors, and spacing</li>
+                            <li>Seamless brand consistency</li>
+                            <li>Zero configuration required</li>
+                            <li>Works with any Shopify theme</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-badge">Enhanced UX</span>
+                        <h4 class="feature-title">Live Preview Studio</h4>
+                        <p class="feature-description">See changes instantly as you design. No more guessing how options will look on your storefront.</p>
+                        <ul class="feature-benefits">
+                            <li>Real-time visual feedback</li>
+                            <li>Mobile & desktop preview</li>
+                            <li>One-click style adjustments</li>
+                            <li>Instant customer view</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="roadmap-future">
+            <h3>Beyond The Phoenix: Q4 2025</h3>
+            <div class="future-phases">
+                <div class="phase-card">
+                    <span class="phase-quarter">Q4 2024</span>
+                    <h4 class="phase-title">Built for Shopify Badge</h4>
+                    <p class="phase-outcome">Achieve highest level of app store recognition</p>
+                    <ul class="phase-features">
+                        <li>Meet all Built for Shopify requirements</li>
+                        <li>Enhanced app store promotion</li>
+                        <li>Featured placement opportunities</li>
+                        <li>Premium merchant surfaces access</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-quarter">Q1 2025</span>
+                    <h4 class="phase-title">Peak Season & AI Launch</h4>
+                    <p class="phase-outcome">Capitalize on BFCM and introduce AI capabilities</p>
+                    <ul class="phase-features">
+                        <li>Black Friday/Cyber Monday optimization</li>
+                        <li>AI-assisted option creation flow</li>
+                        <li>Intelligent option recommendations</li>
+                        <li>Peak traffic performance scaling</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-quarter">Q2 2025</span>
+                    <h4 class="phase-title">Market Leadership</h4>
+                    <p class="phase-outcome">Become the undisputed #1</p>
+                    <ul class="phase-features">
+                        <li>Advanced conditional logic</li>
+                        <li>3D product configurator</li>
+                        <li>B2B wholesale features</li>
+                        <li>Global expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="phoenix-section">
+            <div class="section-header">
+                <h2 class="section-title">🛡️ Guardrail Metrics</h2>
+                <p class="section-subtitle">Critical thresholds we will not compromise during transformation</p>
+            </div>
+            
+            <div class="metrics-showcase" style="background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.2);">
+                <div class="target-metrics" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="target-metric">
+                        <div class="target-value" style="color: #ef4444;">0</div>
+                        <div class="target-label">Data Loss Events</div>
+                        <div class="target-change">ABSOLUTE REQUIREMENT</div>
+                    </div>
+                    <div class="target-metric">
+                        <div class="target-value" style="color: #ef4444;">≥4.5</div>
+                        <div class="target-label">App Rating Floor</div>
+                        <div class="target-change">MAINTAIN TRUST</div>
+                    </div>
+                    <div class="target-metric">
+                        <div class="target-value" style="color: #ef4444;"><2hr</div>
+                        <div class="target-label">Max Downtime</div>
+                        <div class="target-change">MIGRATION WINDOW</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2 class="section-title">⚖️ Key Trade-offs</h2>
+                <p class="section-subtitle">Strategic decisions balancing ambition with reality</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); position: relative;">
+                    <span class="feature-badge" style="background: #10b981; color: white;">Strategic Gains</span>
+                    <h4 class="feature-title" style="color: #10b981;">What We Achieve</h4>
+                    <ul class="feature-benefits" style="margin-top: 20px;">
+                        <li>Modern, maintainable codebase foundation</li>
+                        <li>3x faster feature development cycles</li>
+                        <li>Enhanced merchant satisfaction & retention</li>
+                        <li>Competitive market positioning advantage</li>
+                        <li>Built for Shopify badge eligibility</li>
+                    </ul>
+                </div>
+                <div class="feature-card" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); position: relative;">
+                    <span class="feature-badge" style="background: #ef4444; color: white;">Strategic Costs</span>
+                    <h4 class="feature-title" style="color: #ef4444;">What We Accept</h4>
+                    <ul class="feature-benefits" style="margin-top: 20px;">
+                        <li>3-month intensive development sprint</li>
+                        <li>Temporary pause on new feature releases</li>
+                        <li>Enhanced QA and testing requirements</li>
+                        <li>Elevated support complexity during transition</li>
+                        <li>25% infrastructure cost increase during migration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-cta">
+        <h2>The Phoenix Rises in September 2025</h2>
+        <p>Ready to lead the product options renaissance on Shopify</p>
+    </div>
+</body>
+</html>
